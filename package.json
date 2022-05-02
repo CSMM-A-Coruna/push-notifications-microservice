@@ -1,0 +1,39 @@
+{
+  "name": "push-notifications-microservice",
+  "version": "1.0.0",
+  "description": "Microservicio de notificaciones push para la app del GestorEscolar",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "dev": "export NODE_ENV=development && nodemon src/index.js --exec babel-node",
+    "dev-win": "nodemon --exec npm run babel-node src/index.js",
+    "build": "babel src -d build",
+    "start": "export NODE_ENV=production && node build/index.js",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSMM-A-Coruna/push-notifications-microservice.git"
+  },
+  "author": "Javier Miralles Rancano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSMM-A-Coruna/push-notifications-microservice/issues"
+  },
+  "homepage": "https://github.com/CSMM-A-Coruna/push-notifications-microservice#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "dotenv": "^16.0.0",
+    "firebase-admin": "^10.1.0",
+    "mysql": "^2.18.1",
+    "prettier": "^2.6.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.7",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.16"
+  }
+}
