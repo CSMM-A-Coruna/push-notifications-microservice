@@ -26,7 +26,7 @@ export const sendNotification = async (idComunicacionDestino) => {
         `SELECT * FROM familias WHERE id = ${com[0].iddestino}`
       )
       const token = tokenQuery[0].fcm_token
-      if (token) {
+      if (token != '-' || token != null) {
         const queryPayload = await executeQuery(
           `SELECT asunto, tiporemite, idremite FROM comunicaciones WHERE idcomunicacion = ${com[0].idcomunicacion}`
         )
@@ -52,6 +52,7 @@ export const sendNotification = async (idComunicacionDestino) => {
           notification: {
             title: 'Nueva comunicación: ' + queryPayload[0].asunto,
             body: 'De: ' + queryNombreRemite[0].nombre,
+            click_action: "OPEN_ComunicacionDetalleRecibida"
           },
         }
 
